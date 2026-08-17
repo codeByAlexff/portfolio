@@ -1,4 +1,5 @@
 import cinemantic from './assets/cinemantic.png'
+import llm from './assets/llm.mp4'
 
 export default function ProjectCard ({ image, video, title, badge, badgeType, children}) {
     return (
@@ -9,7 +10,7 @@ export default function ProjectCard ({ image, video, title, badge, badgeType, ch
             </div>
             <div className="card-frame">
                 {video ? (
-                <video className="card-image" autoplay loop muted playsInline>
+                <video className="card-image" autoPlay loop muted playsInline>
                     <source src={video} type="video/webm" />
                     <source src={video} type="video/mp4" />
                     </video>

@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,100..900&family=IBM+Plex+Mono:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap');
 :root {
   --display: "Google Sans Flex", system-ui, sans-serif;
-  --body:    "Google Sans Flex", system-ui, sans-serif;
+  --body:    "Hanken Grotesk", system-ui, sans-serif;
   --mono:    "JetBrains Mono", ui-monospace, monospace;
   --mono-alt:"IBM Plex Mono", ui-monospace, monospace;
 
@@ -10,7 +13,7 @@
   --heading: var(--display);
   --bg:            #0a0e14;
   --text:          #8b98b0;
-  --text-h:        #eaf2ff;
+  --text-h:        #FFFDF9;
   --accent:        #22d3ee;
   --accent-bg:     rgba(34, 211, 238, 0.12);
   --accent-border: rgba(34, 211, 238, 0.5);
@@ -34,6 +37,17 @@
 
 body { margin: 0; }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
 #root {
   width: 100%;
   max-width: 100%;
@@ -54,10 +68,10 @@ h1, h2 {
 
 h1 {
   font-family: var(--display);
-  font-size: 52px;
+  font-size: 75px;
   font-weight: 700;
   letter-spacing: 0.1px;
-  line-height: 1.05;
+  line-height: 0.95;
 }
 
 h2 {
@@ -72,12 +86,12 @@ p {
   font-family: var(--body);
   font-weight: 400;
   margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.6;
-  color: var(--text);
+  color: #C8C3BB;
 }
 
-.standout-p { font-size: 20px; }
+.standout-p { font-size: 25px; }
 .links-p,
 code {
   font-family: var(--mono);
@@ -108,7 +122,7 @@ code {
 
 .project-card {
   flex-direction: column;
-  background: #0e0f18;
+  background: #262220;
   border-radius: 12px;
   padding: 16px;
 }
@@ -158,6 +172,7 @@ code {
 
 .card-image {
   width: 100%;
+  height: 200px;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 8px;
@@ -203,7 +218,13 @@ code {
   line-height: 1.6;
 }
 
+.box {
+  margin: clamp(10px, 4vw, 50px);
+}
+
 .hero-panel {
+  text-align: left;
+  padding-top: 100px;
   background: radial-gradient(
     ellipse at center,
     rgba(10, 14, 20, 0.7) 0%,
@@ -214,7 +235,7 @@ code {
 }
 
 .project-card {
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);   /* lifts the card off the bg */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .card-tagline {
@@ -222,4 +243,101 @@ code {
   font-weight: 500;
   font-size: 18px;
 }
+
+#projects {
+  min-height: 100svh;
+  padding: 80px 0;
+  border-top: 1px solid var(--border);
+
+}
+
+section {
+  scroll-margin-top: 70px;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  backdrop-filter: blur(8px);
+  background: rgba(10, 14, 20, 0.6);
+  padding-left: 20px;
+  padding-right: 20px;
+  transition: color 0.2s;
+}
+
+.navbar {
+  display: flex;
+  gap: 50px;
+}
+
+.navbar a {
+  display: flex;
+  align-items: center;
+  color: var(--text-h);
+  text-decoration: none;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-h);
+  text-decoration: none;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  transition: color 0.2s;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.logo-badge{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--text-h);
+
+}
+
+.navbar-title {
+  font-size: 18px;
+}
+
+.navbar a:hover {
+  color: var(--accent);
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 24px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.let-talk {
+  background: linear-gradient(to right, #FFFDF9, #5C63E6, #AEC7FF, #C8D2E3);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 

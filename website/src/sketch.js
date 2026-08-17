@@ -3,7 +3,7 @@
 export default function createSketch(onWin) {
     return function sketch(p) {
         const particles = [];
-        const numParticles = 1;
+        const numParticles = 100;
         let achievementFired = false;
 
         p.setup = () => {
@@ -20,7 +20,7 @@ export default function createSketch(onWin) {
         }
 
         p.draw = () => {
-            p.background(38, 43, 64);
+            p.background(14, 13, 12);
 
             particles.forEach((particle, index) => {
                 particle.update();
