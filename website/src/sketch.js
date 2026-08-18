@@ -1,10 +1,12 @@
 
 
-export default function createSketch(onWin) {
+export default function createSketch(onWin, scrolledRef) {
     return function sketch(p) {
         const particles = [];
         const numParticles = 100;
         let achievementFired = false;
+        let t = 0;
+        let darkBg, lightBg;
 
         p.setup = () => {
             let cnv = p.createCanvas(p.windowWidth, p.windowHeight);
@@ -12,6 +14,8 @@ export default function createSketch(onWin) {
             cnv.style("position", "absolute");
             cnv.style("inset", 0);
             cnv.style("z-index", -1);
+            darkBg = p.color(14, 13, 12);
+            lightBg = p.color(255, 253, 249);
 
 
             for (let i = 0; i < numParticles; i++){
@@ -20,12 +24,16 @@ export default function createSketch(onWin) {
         }
 
         p.draw = () => {
-            p.background(14, 13, 12);
+            const scrolled = scrolledRef.current;
+            const target = scrolled ? 1 : 0;
+            t += (target - t) * 0.05
+
+            p.background(p.lerpColor(darkBg, lightBg, t))
 
             particles.forEach((particle, index) => {
                 particle.update();
-                particle.drawParticle();
-                particle.drawLines(particles.slice(index));
+                particle.drawParticle(scrolled);
+                particle.drawLines(particles.slice(index), scrolled);
             });
 
             const allTouched = particles.every((particle) => particle.touched);
@@ -51,6 +59,8 @@ export default function createSketch(onWin) {
                 this.detectMouseInteraction();
                 this.position.add(this.velocity);
                 this.detectEdges();
+
+                this.scrolled = window.scrollY;
             }
 
             detectMouseInteraction() {
@@ -78,23 +88,24 @@ export default function createSketch(onWin) {
                 }
             }
 
-            drawLines(particles) {
+            drawLines(particles, scrolled) {
                 particles.forEach(particle => {
                     let distance = p.dist(this.position.x, this.position.y, particle.position.x, particle.position.y);
-                    
                     const maxDistance = 100
 
                     if (distance < maxDistance) {
                         let alpha = p.map(distance, 0, maxDistance, 255, 0);
-                        p.stroke(83, 121, 174, alpha);
+                        if (scrolled) p.stroke(120, 130, 160, alpha);
+                        else p.stroke(83, 121, 174, alpha);
                         p.line(this.position.x, this.position.y, particle.position.x, particle.position.y);
                     }
                 })
 
             }
 
-            drawParticle() {
+            drawParticle(scrolled) {
                 if (this.touched) p.fill(34, 211, 238);
+                else if (scrolled) p.fill(60, 60, 80);
                 else p.fill(168, 197, 236);
                 p.noStroke();
                 p.ellipse(this.position.x, this.position.y, 5)

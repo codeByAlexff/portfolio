@@ -48,10 +48,14 @@
 #center {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
   min-height: 100svh;
-  padding-top: 20px;
+  max-width: 1400px;
+  padding: 0 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 #next-steps {
