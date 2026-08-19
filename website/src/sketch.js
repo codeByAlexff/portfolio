@@ -15,7 +15,7 @@ export default function createSketch(onWin, scrolledRef) {
             cnv.style("inset", 0);
             cnv.style("z-index", -1);
             darkBg = p.color(14, 13, 12);
-            lightBg = p.color(255, 253, 249);
+            lightBg = p.color(251, 247, 243);
 
 
             for (let i = 0; i < numParticles; i++){

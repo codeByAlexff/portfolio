@@ -3,6 +3,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@300;400;500;600;700&display=swap');
+
 :root {
   --display: "Google Sans Flex", system-ui, sans-serif;
   --body:    "Hanken Grotesk", system-ui, sans-serif;
@@ -59,6 +63,50 @@ html {
 
 }
 
+.end-container {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 24px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.end-title {
+  margin: 0;
+  font-family: "IBM Plex Sans Condensed", sans-serif;
+  text-align: center;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 1px;
+  color: #7379E8;
+  transition: color 0.3s ease;
+  padding-bottom: 30px;
+}
+
+.end-largeTitle {
+  margin: 0;
+  font-family: "Hanken Grotesk", sans-serif;
+  text-align: center;
+  font-weight: 800;
+  font-size: 60px;
+  color: #FBF7F3;
+  transition: color 0.3s ease;
+  padding-bottom: 30px;
+
+}
+
+.end-p {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-weight: 300;
+  font-size: 25px;
+  color: #C4BDB3;
+  transition: color 0.3s ease;
+  padding-bottom: 30px;
+
+}
+
 
 .header-inner {
   max-width: 1400px;
@@ -97,6 +145,8 @@ h1 {
   letter-spacing: 0.1px;
   line-height: 0.95;
 }
+
+
 
 h2 {
   font-size: 24px;
@@ -138,6 +188,10 @@ code {
   background: var(--code-bg);
 }
 
+.code-space {
+  display: block;
+}
+
 .tight-spacing {
   margin-bottom: 1px;
   line-height: 1.3;
@@ -148,9 +202,16 @@ code {
 
 .project-card {
   flex-direction: column;
-  background: #262220;
+  background: #1e1e1e;
   border-radius: 12px;
   padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease-in-out; 
+}
+
+.project-card:hover {
+  box-shadow: 3px 3px 6px 0px #CCDBE8 inset, -3px -3px 6px 1px rgba(255,255,255,0.5) inset;
+
 }
 
 .card-header {
@@ -161,7 +222,7 @@ code {
   min-height: 56px; 
   margin-bottom: 5px;
   border-bottom: 1px solid var(--border);
-  color: #fff;
+  color: #F5F3EE;
 }
 
 .card-header h3 {
@@ -174,8 +235,8 @@ code {
 .badge {
   flex-shrink: 0;
   white-space: nowrap;
-  font-family: var(--mono-alt);
-  font-size: 13px;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 15px;
   padding: 6px 14px;
   border-radius: 999px;
   border: 1px solid transparent;
@@ -186,9 +247,16 @@ code {
   border-color: rgba(224, 164, 88, 0.4);
 }
 .badge-open {
-  color: var(--accent);
-  background: var(--accent-bg);
-  border-color: var(--accent-border);
+  color: #9DBDC8;
+  background: #34424A;
+  border-color: 1px solid #59727C;
+  transition: color 0.3;
+}
+
+.badge-open:hover {
+  color: #B8D3DC;
+  background: #3D5059;
+  border-color: #6B8B96;
 }
 
 .card-frame {
@@ -204,11 +272,15 @@ code {
   display: block;
 }
 
-.card-body { margin-top: 24px; }
+.card-body { 
+  margin-top: 24px; 
+  font-size: 20px;
+  color: #B8B5AF;
+}
 
 
-.card-body .card-tagline {
-  color: var(--text-h);
+.card-tagline {
+  color: #F5F3EE;
   font-size: 20px;
   margin-bottom: 12px;
 }
@@ -225,6 +297,8 @@ code {
 }
 .projects-grid .project-card:last-child {
   border-right: none;
+  grid-column: 2;
+
 }
 
 @media (max-width: 1300px) {
@@ -282,6 +356,130 @@ code {
 
 }
 
+#experience {
+  min-height: 100svh;
+  margin-top: 80px;
+  padding: 100px 0px;
+  border-top: 1px solid #CCDBE8;
+  background-color: #FBF7F3;
+}
+
+#end {
+  background-color: #1A1815;
+  min-height: 60svh;
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+#aboutme {
+  min-height: 100svh;
+  padding: 100px 0px;
+  border-top: 1px solid #CCDBE8;
+}
+
+.aboutme-block {
+  background: #1A1815;
+  max-width: 1400px;
+  border-radius: 16px;
+  padding: clamp(24px, 4vw, 56px);
+  gap: 150px;
+  text-align: left;
+}
+
+.aboutme-block-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  font-weight: 300;
+  font-size: 25px;
+  color: #7379E8;
+  transition: color 0.3s ease;
+}
+
+
+.aboutme-block-subtitle {
+  padding-bottom: 50px;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 40px;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+
+}
+
+.aboutme-p {
+  font-size: 25px;
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 400;
+  color:#e8dfd3;
+  max-width: 1400;
+}
+
+.aboutme-p .highlight {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+
+
+.experience-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 150px;
+  margin-top: 50px;
+  padding-top: 50px;
+  border-top: 1px solid #C8C3BB;
+  font-size: 30px;
+  text-align: left;
+}
+
+.experience-block-title {
+  margin: 0;
+  display: block;
+  color:#000;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+
+.experience-block-subtitle {
+  display: block;
+  color:#676565;
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 300;
+  font-size: 18px;
+  max-width: 800px;
+
+}
+
+.experience-block-timeline {
+  flex: 0 0 180px;
+  white-space: nowrap;
+  font-family: "Inter", sans-serif;
+  color: #4e1dee;
+  text-align: left;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.experience-block-content {
+  line-height: 30px;
+  flex-direction: column;
+}
+
+.experience-company {
+  margin: 0;
+  color: #9D9385;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.experience-block-gap {
+  padding-left: 90px;
+}
+
 section {
   scroll-margin-top: 70px;
 }
@@ -298,7 +496,7 @@ section {
   transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
 }
 
-.site-header.scrolled {
+.site-header.scrolled{
   background: rgba(207, 206, 205, 0.591);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -319,7 +517,7 @@ section {
 
 
 .site-header.scrolled .navbar a:hover {
-  color: #0474C4;
+  color: #fff;
 }
 
 .navbar {
@@ -366,7 +564,6 @@ section {
   font-family: var(--mono);
   font-size: 16px;
   color: var(--text-h);
-
 }
 
 .navbar-title {
@@ -430,6 +627,16 @@ section {
 }
 
 .window-body {
+  text-align: left;
+  padding: 20px;
+  margin: 0;
+  overflow-x: auto;
+}
+
+.window-body-left {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
   padding: 20px;
   margin: 0;
   overflow-x: auto;
@@ -439,11 +646,63 @@ section {
   margin: 0;
 }
 
+
+
 .window-body code {
   color: #d4d4d4;
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-left: 2ch;
+  text-indent: -2ch;
 }
+
+.stack-deco {
+  color:#ffffff;
+  flex: flex;
+  flex-direction: row;
+  width: fit-content;
+  margin-bottom: 8px;
+  font-family: "Google Sans Flex", system-ui, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+
+}
+
+.stack-tags {
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.calendar-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.code-deco {
+  display: grid;
+  flex-direction: row;
+  background-color: #fff9ea;
+  color: #000;
+  width: fit-content;
+  margin-bottom: 8px;
+  font-family: "Google Sans Flex", system-ui, sans-serif;
+  font-weight: 00;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: 20px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  border-color: var(--accent-border);
+}
+
+
 
 .keyword {
   color: #dcdcaa;
@@ -452,6 +711,216 @@ section {
 .property {
   color: #9cdcfe;
 }
+
+@keyframes moveAndBack {
+  0%   { transform: translateX(-100px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+.project-title {
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  font-weight: 300;
+  font-size: 25px;
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.project-subtitle {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 40px;
+  text-align: left;
+  font-weight: 600;
+  color: transparent;
+  transition: color 0.3s ease;
+}
+
+.experience-title {
+  font-family: "Inter", sans-serif;
+  text-align: left;
+  font-weight: 300;
+  font-size: 25px;
+  color: #7379E8;
+  transition: color 0.3s ease;
+}
+
+.experience-subtitle {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-size: 40px;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: color 0.3s ease;
+}
+
+#projects.scrolled .project-title {
+  color: #7379E8;
+  animation: moveAndBack 0.4s ease;
+}
+
+#projects.scrolled .project-subtitle {
+  color: #1a1a1a;
+  animation: moveAndBack 0.4s ease 0.1s backwards;
+}
+
+#experience.scrolled .experience-title {
+  animation: moveAndBack 0.4s ease 0.1s backwards;
+}
+
+#experience.scrolled .experience-subtitle {
+  animation: moveAndBack 0.4s ease 0.1s backwards;
+}
+
+
+
+/* Automatic Code Text Box */
+
+.var-highlight {
+  color: #C0AD60;
+}
+
+.string-highlight {
+  color: rgba(202, 218, 252, 0.8);
+}
+
+#typewriter {
+  display: block;
+  white-space: pre;
+  margin: 0;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 15px;
+}
+
+#typewriter:after {
+  content: "|";
+  -webkit-animation: blink 500ms linear infinite alternate;
+  animation: blink 500ms linear infinite alternate;
+}
+
+@-webkit-keyframes blink {
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@keyframes blink{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+#typewriter code,
+.window-body pre code {
+  display: block;
+  white-space: pre;
+  text-align: left;
+  text-indent: 0;
+}
+
+.get-in-touch {
+  background-color: transparent;
+  border: 2px solid #0474C4;
+  border-radius: 40px;
+  color:#000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
+}
+
+.navbar a.get-in-touch:hover {
+  background-color: #0474C4;
+  color:#fff;
+  border-color: #0474c4;
+}
+
+.get-in-touch.scrolled {
+  border: 2px solid #000;
+  color:#000;
+
+}
+
+.tag-pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 20px;
+  margin-bottom: 32px;
+}
+
+.tag-pill {
+  margin-right: 12px;
+  margin-bottom: 8px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: #7379E8;
+  padding: 8px 18px;
+  border: 1px solid rgba(115, 121, 232, 0.4);
+  border-radius: 999px;
+  white-space: nowrap;
+  background: transparent;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.tag-pill:hover {
+  border-color: rgba(115, 121, 232, 0.8);
+  background: rgba(115, 121, 232, 0.08);
+}
+
+.tag-label {
+  font-family: var(--mono);
+  font-size: 14px;
+  color: #8a857e; 
+}
+
+.site-footer {
+  background-color: #161512;
+  padding: 40px 0;
+}
+
+.site-footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.contact-section {
+  background-color: #0d0d0f;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+}
+
 
 
 
