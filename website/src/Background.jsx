@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import p5 from 'p5'
 import createSketch from './sketch'
 
 function Background({onWin, hasScrolled}) {
