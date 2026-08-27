@@ -1,5 +1,4 @@
 import cinemantic from './assets/cinemantic.png'
-import llm from './assets/llm.mp4'
 
 export default function ProjectCard ({ image, video, title, badge, badgeType, children}) {
     return (
