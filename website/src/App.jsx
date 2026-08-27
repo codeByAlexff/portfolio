@@ -9,7 +9,7 @@ import leetbot from './assets/leetbot-web.mp4'
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
 import { TypeAnimation } from 'react-type-animation'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 function App() {
   const [copied, setCopied] = useState(false)
