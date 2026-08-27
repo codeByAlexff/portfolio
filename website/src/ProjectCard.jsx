@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-export default function ProjectCard ({ image, video, title, badge, badgeType, children}) {
+export default function ProjectCard ({ image, video, poster, title, badge, badgeType, children}) {
     const videoRef = useRef(null);
 
 
@@ -31,10 +31,16 @@ export default function ProjectCard ({ image, video, title, badge, badgeType, ch
             </div>
             <div className="card-frame">
                 {video ? (
-                <video ref={videoRef} poster={poster} preload="none" className="card-image" loop muted playsInline>
-                    <source src={video} type="video/webm" />
-                    <source src={video} type="video/mp4" />
-                    </video>
+                <video 
+                ref={videoRef} 
+                src={video} 
+                poster={poster} 
+                preload="none" 
+                className="card-image" 
+                loop 
+                muted 
+                playsInline
+                />
                 ) : (
                     <img src={image} alt={title} className="card-image" />
                 )}
