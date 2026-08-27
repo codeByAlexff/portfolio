@@ -84,7 +84,7 @@ function App() {
         <div className={hasScrolled ? 'header-inner scrolled' : 'header-inner' }>
           <a href="#center" className="logo">
             <span className="logo-badge">AF</span>
-            <span>Alexander Ferreira</span>
+            <span className="logo-name">Alexander Ferreira</span>
           </a>
           <nav className="navbar">
             <a href="#projects">Projects</a>
