@@ -42,7 +42,7 @@ function App() {
     const handleScroll = () => {
       const scrolled = window.scrollY > 600
       setHasScrolled(scrolled);
-      document.documentElement.classList.toggle('scrolled', scrolled)
+      document.body.classList.toggle('scrolled', scrolled)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -50,7 +50,7 @@ function App() {
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      document.body.classList.remove('scrolled');
+      document.documentElement.classList.remove('scrolled');
     };
   }, [])
 
@@ -74,7 +74,7 @@ function App() {
   return (
     <>
     {showBackground && (
-      <Suspense fallback={null}>document.documentElement.classList.toggle('scrolled', scrolled);
+      <Suspense fallback={null}>
         <Background onWin={handleWin} hasScrolled={hasScrolled}/>
       </Suspense>
     )}
