@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState, useRef } from 'react'
-import Background from './Background'
+import { lazy, Suspense, useCallback, useEffect, useState, useRef } from 'react'
+const Background = lazy(() => import("./Background"))
 import Popup from './Popup'
 import ProjectCard from './ProjectCard'
 import cinemantic from './assets/cinemantic-web.mp4'
@@ -17,8 +17,12 @@ function App() {
   const [hasScrolled, setHasScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const typeRef = useRef(null);
+  const [showBackground, setShowBackground] = useState(false)
+
   
-  
+  useEffect(() => {
+    setShowBackground(window.innerWidth >= 768);
+  }, []);
 
 
 
@@ -60,8 +64,12 @@ function App() {
 
   return (
     <>
+    {showBackground && (
+      <Suspense fallback={null}>
+        <Background onWin={handleWin} hasScrolled={hasScrolled}/>
+      </Suspense>
+    )}
     <SpeedInsights />
-      <Background onWin={handleWin} hasScrolled={hasScrolled}/>
 
       <header className={hasScrolled ? 'site-header scrolled' : 'site-header' }>
         <div className={hasScrolled ? 'header-inner scrolled' : 'header-inner' }>
