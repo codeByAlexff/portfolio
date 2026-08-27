@@ -60,6 +60,7 @@ function App() {
 
   return (
     <>
+    <SpeedInsights />
       <Background onWin={handleWin} hasScrolled={hasScrolled}/>
 
       <header className={hasScrolled ? 'site-header scrolled' : 'site-header' }>
