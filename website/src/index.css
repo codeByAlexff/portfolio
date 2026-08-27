@@ -20,7 +20,6 @@
   letter-spacing: 0.18px;
   color-scheme: dark;
   color: var(--text);
-  background: var(--bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -971,15 +970,6 @@ section {
     transparent 1px
   );
   background-size: 28px 28px;
-}
-
-body {
-  background-color: #0e0d0c;
-  transition: background-color 0.4s ease;
-}
-
-body.scrolled {
-  background-color: #fbf7f3;
 }
 
 
