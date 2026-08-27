@@ -1,4 +1,3 @@
-import cinemantic from './assets/cinemantic.png'
 
 export default function ProjectCard ({ image, video, title, badge, badgeType, children}) {
     return (
