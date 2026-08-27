@@ -2,9 +2,10 @@ import { useCallback, useEffect, useState, useRef } from 'react'
 import Background from './Background'
 import Popup from './Popup'
 import ProjectCard from './ProjectCard'
-import cinemantic from './assets/cinemantic.png'
-import clip from './assets/clip.png'
+import cinemantic from './assets/cinemantic.mp4'
+import clip from './assets/clip.mp4'
 import llm from './assets/llm.mp4'
+import leetbot from './assets/leetbot.mp4'
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
 import { TypeAnimation } from 'react-type-animation'
@@ -149,9 +150,11 @@ function App() {
               <code>
               <TypeAnimation
               sequence = {[
-                'Hey Im Alex. Welcome to my portfolio.',
+                'Hi Im Alex. Welcome to my portfolio.',
                 3000,
-                'FIU 2026 Graduate',
+                'Hola soy Alex. Bienvenido a mi portafolio',
+                3000,
+                'Olá, o meu nome é Alex. Bem-vindo ao meu portefólio.',
                 3000,
               ]}
               wrapper="span"
@@ -170,30 +173,37 @@ function App() {
           <h2 className="project-title">Selected Work</h2>
           <h2 className="project-subtitle">Things I built to understand how they work.</h2>
           <div className="projects-grid">
-            <ProjectCard image={cinemantic} title="Cinemantic" badge="open source" badgeType="open">
-              <p className="card-tagline project-p">semantic movie search engine</p>
+            <ProjectCard video={cinemantic} title="Cinemantic" badge="open source" badgeType="open">
+              <p className="card-tagline project-p">Semantic movie recommendation engine</p>
               <p className="project-p">
-                Movie recommender system made to fully understand and conceptualize vector embeddings and cosine similarity turned into a project.
-                System takes in a TMDB 4k+ movie dataset and turns them into vector embeddings. These then get stored in a PostgreSQL database utilizing pgvector.
-                User can send a query with a film or description of one and the system will then embed the query, insert it into the database, perform a cosine similarity calculation
-                and return the top k movies that match the query the most. For system performance Redis is utilized for result caching and error catching. Currently adding a benchmarked retrieval
-                evaluation harness for correct metrics.
+              Embedded 4,800 TMDB plot overviews with OpenAI text-embedding-3-small, stored in PostgreSQL via pgvector for cosine-
+              similarity retrieval.
+              Combined vector distance with hard filters on year, runtime, and rating in a single SQL query, with an optional LLM rerank pass.
+              Cached query embeddings in Redis by content hash (30-day TTL, fail-open), skipping the embedding API call on repeat searches.
+              Currently working on benchmarking Precision@10 across keyword, semantic, and reranked retrieval on a hand-labeled 40-query evaluation set.
               </p>
             </ProjectCard>
 
             <ProjectCard image={clip} title="Typographic recovery" badge="open source" badgeType="open">
               <p className="card-tagline project-p">CLIP adversarial attack recovery.</p>
               <p className="project-p">
-                Benchmark pipeline measuring how well CLIP recovers from typographic attacks — images with misleading text printed on them.
-                Compares three removal methods (solid mask, OpenCV inpaint, LaMa) and measures attack success rate and classification recovery across each.
+                Engineered a four-stage vision pipeline: CLIP (ViT-B/32) classification, EasyOCR text detection, removal, re-classification.
+                Benchmarked three text-removal methods: solid masking, OpenCV Telea inpainting, and LaMa neural inpainting on a generated 28-image attack dataset.
+                Measured an 89.3% attack success rate against CLIP and 100% classification recovery for all three removal methods.
+                Structured the codebase into modular components (classifier, OCR, masking, evaluation) with a reproducible eval script and CLI
+                entry points.
               </p>
             </ProjectCard>
 
             <ProjectCard video={llm} title="LLM token prediction model" badge="open source" badgeType="open">
-              <p className="card-tagline project-p">GPT-2 built from scratch.</p>
+              <p className="card-tagline project-p">Bigram Language Model (PyTorch)</p>
               <p className="project-p">
-                A 124M-parameter transformer trained from the ground up on FineWeb-Edu. Implements the full architecture by hand — attention, layer norm,
-                BPE tokenization, gradient accumulation, and cosine learning-rate decay.
+                Character-level tokenization over a 92-symbol vocabulary derived from the corpus, with encode/decode maps built from a sorted character set
+                nn.Embedding(vocab_size, vocab_size) as a lookup table where each row is the logit distribution over next characters
+                Batched sampling with torch.randint over an 80/20 train/val split, blocks of 8 tokens
+                Loss computed by flattening (B, T, C) logits to (B*T, C) for F.cross_entropy
+                Periodic evaluation under @torch.no_grad() with explicit model.eval() / model.train() toggling so dropout and normalization behave correctly at eval time
+                Autoregressive generation: slice the final timestep, softmax over the vocab axis, sample with torch.multinomial, concatenate, repeat
               </p>
             </ProjectCard>
             <div className="code-window">
@@ -231,10 +241,13 @@ function App() {
               </div>
             </div>
           </div>
-            <ProjectCard video={llm} title="leetbot" badge="open source" badgeType="open">
+            <ProjectCard video={leetbot} title="leetbot" badge="open source" badgeType="open">
               <p className="card-tagline project-p">Discord bot for LeetCode practice.</p>
               <p className="project-p">
-                Discord bot that serves daily LeetCode problems and tracks solve streaks. Currently running in 10+ servers with 250+ active users.
+                Built and published a Discord bot adopted across 10+ servers with a combined reach of 250+ members.
+                Deployed and maintained the bot in production on Railway, with automated deploys triggered on each GitHub commit.
+                Implemented commands for random retrieval, lookup by problem number, and filtering by difficulty and topic across 3,000+
+                problems.
               </p>
             </ProjectCard>
             <div className="code-window">
@@ -274,7 +287,11 @@ function App() {
           <div className="experience-block-content">
             <span className="experience-block-title">Technical Support Agent</span>
             <p className="experience-company">Best Buy · Major Tech Retailer</p>
-              <p className="experience-block-subtitle">Building React Native applications and reusable native infrastructure for iOS and Android, alongside web and backend services — native integrations (Swift, Objective-C, Kotlin, Java), shared tooling, and engineering workflow improvements.</p>
+              <p className="experience-block-subtitle">
+                Diagnose and resolve hardware, operating system, and application-level software defects across consumer devices daily.
+                Consult with customers to scope technical requirements and translate complex findings into clear, actionable guidance.
+                Own end-to-end device intake, documentation, and repair workflow, partnering with technicians to resolve escalations.
+              </p>
             </div>
           </div>
           <div className="experience-block">
@@ -282,7 +299,10 @@ function App() {
           <div className="experience-block-content">
             <span className="experience-block-title">Web Development Intern</span>
             <p className="experience-company">Show Production Miami · Large event and show company</p>
-              <p className="experience-block-subtitle">Building React Native applications and reusable native infrastructure for iOS and Android, alongside web and backend services — native integrations (Swift, Objective-C, Kotlin, Java), shared tooling, and engineering workflow improvements.</p>
+              <p className="experience-block-subtitle">
+                Built a company website from the ground up with a three-person team, iterating on feedback through peer code reviews.
+                Developed responsive front-end pages and layouts in HTML, CSS, and JavaScript as a framework for future expansion.
+              </p>
             </div>
           </div>
         </div>
