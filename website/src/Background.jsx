@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import createSketch from './sketch'
+import p5 from 'p5'
 
 function Background({onWin, hasScrolled}) {
     const containerRef = useRef(null)
