@@ -24,10 +24,6 @@ export default function createSketch(onWin, scrolledRef) {
         p.draw = () => {
             const scrolled = scrolledRef.current;
             p.clear();
-            const target = scrolled ? 1 : 0;
-            t += (target - t) * 0.05
-
-            p.background(p.lerpColor(darkBg, lightBg, t))
 
             particles.forEach((particle, index) => {
                 particle.update();
