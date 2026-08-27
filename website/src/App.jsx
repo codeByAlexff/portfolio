@@ -41,12 +41,17 @@ function App() {
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 600)
+      setHasScrolled(scrolled);
+      document.body.classList.toggle('scrolled', scrolled)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      document.body.classList.remove('scrolled');
+    };
   }, [])
 
 
