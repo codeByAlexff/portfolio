@@ -198,7 +198,7 @@ function App() {
               </p>
             </ProjectCard>
 
-            <ProjectCard video={clip} poster={clipPoster}title="Typographic recovery" badge="open source" badgeType="open">
+            <ProjectCard video={clip} poster={clipPoster} title="Typographic recovery" badge="open source" badgeType="open">
               <p className="card-tagline project-p">CLIP adversarial attack recovery.</p>
               <p className="project-p">
                 Engineered a four-stage vision pipeline: CLIP (ViT-B/32) classification, EasyOCR text detection, removal, re-classification.
@@ -326,7 +326,7 @@ function App() {
             <h2 className="aboutme-block-title">About me</h2>
             <h2 className="aboutme-block-subtitle">A few things to learn</h2>
             <div className="aboutme-block">
-              <div clasName="tag-pills">
+              <div className="tag-pills">
                 <span className="tag-pill">Miami,FL</span>
                 <span className="tag-pill">FL Studio</span>
                 <span className="tag-pill">Gaming</span>

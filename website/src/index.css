@@ -314,7 +314,6 @@ code {
 }
 
 .hero-panel {
-  min-height: 2.4em;
   display: flex;
   align-items: center;
   gap: 60px;
@@ -624,6 +623,7 @@ section {
 }
 
 .window-body {
+  min-height: 4.5em;
   text-align: left;
   padding: 20px;
   margin: 0;

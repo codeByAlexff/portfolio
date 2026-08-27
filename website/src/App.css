@@ -6,6 +6,10 @@
   pointer-events: none;
 }
 
+#title {
+  min-height: 1.2em;
+}
+
 .hero {
   position: relative;
 
