@@ -40,7 +40,7 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setHasScrolled(window.scrollY > 600)
+      const scrolled = window.scrollY > 600
       setHasScrolled(scrolled);
       document.body.classList.toggle('scrolled', scrolled)
     }
