@@ -976,3 +976,19 @@ section {
 @media (max-width: 700px) {
   .projects-grid { grid-template-columns: 1fr; }
 }
+
+:root {
+  --header-h: 80px;
+}
+
+@media (max-width: 768px) {
+  :root { --header-h: 64px; }
+}
+
+#center {
+  padding-top: calc(var(--header-h) + 24px);
+}
+
+section {
+  scroll-margin-top: var(--header-h);
+}
