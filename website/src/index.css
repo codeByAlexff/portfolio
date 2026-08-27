@@ -34,10 +34,17 @@
 body { 
   margin: 0;
   font-family: 'Space Grotesk', 'Helvetica Neue', Arial, sans-serif;
+  background-color: transparent;
  }
 
 html {
+  background-color: #0e0d0c;
+  transition: background-color 0.4s ease;
   scroll-behavior: smooth;
+}
+
+html.scrolled {
+  background-color: #fbf7f3;
 }
 
 .container {

@@ -23,7 +23,7 @@ export default function createSketch(onWin, scrolledRef) {
 
         p.draw = () => {
             const scrolled = scrolledRef.current;
-            p.clear();
+            p.background(0, 0, 0, 0);
 
             particles.forEach((particle, index) => {
                 particle.update();
