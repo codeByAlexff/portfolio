@@ -1,5 +1,28 @@
+import { useEffect, useRef } from "react";
 
 export default function ProjectCard ({ image, video, title, badge, badgeType, children}) {
+    const videoRef = useRef(null);
+
+
+    useEffect(() => {
+        const e1 = videoRef.current;
+        if (!e1) return;
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    e1.play().catch(() => {});
+                } else {
+                    e1.pause();
+                }
+            },
+            { threshold: 0.25 }
+        );
+
+        observer.observe(e1);
+        return () => observer.disconnect()
+    }, []);
+
     return (
         <div className="project-card">
             <div className="card-header">
@@ -8,7 +31,7 @@ export default function ProjectCard ({ image, video, title, badge, badgeType, ch
             </div>
             <div className="card-frame">
                 {video ? (
-                <video className="card-image" autoPlay loop muted playsInline>
+                <video ref={videoRef} poster={poster} preload="none" className="card-image" loop muted playsInline>
                     <source src={video} type="video/webm" />
                     <source src={video} type="video/mp4" />
                     </video>

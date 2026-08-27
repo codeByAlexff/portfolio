@@ -3,9 +3,13 @@ const Background = lazy(() => import("./Background"))
 import Popup from './Popup'
 import ProjectCard from './ProjectCard'
 import cinemantic from './assets/cinemantic-web.mp4'
+import cinemanticPoster from './assets/cinemantic-poster.jpg'
 import clip from './assets/clip-web.mp4'
+import clipPoster from './assets/clip-poster.jpg'
 import llm from './assets/llm-web.mp4'
+import llmPoster from './assets/llm-poster.jpg'
 import leetbot from './assets/leetbot-web.mp4'
+import leetbotPoster from './assets/leetbot-poster.jpg'
 import './App.css'
 import { GitHubCalendar } from 'react-github-calendar'
 import { TypeAnimation } from 'react-type-animation'
@@ -183,7 +187,7 @@ function App() {
           <h2 className="project-title">Selected Work</h2>
           <h2 className="project-subtitle">Things I built to understand how they work.</h2>
           <div className="projects-grid">
-            <ProjectCard video={cinemantic} title="Cinemantic" badge="open source" badgeType="open">
+            <ProjectCard video={cinemantic} poster={cinemanticPoster} badge="open source" badgeType="open">
               <p className="card-tagline project-p">Semantic movie recommendation engine</p>
               <p className="project-p">
               Embedded 4,800 TMDB plot overviews with OpenAI text-embedding-3-small, stored in PostgreSQL via pgvector for cosine-
@@ -194,7 +198,7 @@ function App() {
               </p>
             </ProjectCard>
 
-            <ProjectCard image={clip} title="Typographic recovery" badge="open source" badgeType="open">
+            <ProjectCard video={clip} poster={clipPoster}title="Typographic recovery" badge="open source" badgeType="open">
               <p className="card-tagline project-p">CLIP adversarial attack recovery.</p>
               <p className="project-p">
                 Engineered a four-stage vision pipeline: CLIP (ViT-B/32) classification, EasyOCR text detection, removal, re-classification.
@@ -205,7 +209,7 @@ function App() {
               </p>
             </ProjectCard>
 
-            <ProjectCard video={llm} title="LLM token prediction model" badge="open source" badgeType="open">
+            <ProjectCard video={llm} poster={llmPoster} title="LLM token prediction model" badge="open source" badgeType="open">
               <p className="card-tagline project-p">Bigram Language Model (PyTorch)</p>
               <p className="project-p">
                 Character-level tokenization over a 92-symbol vocabulary derived from the corpus, with encode/decode maps built from a sorted character set
@@ -251,7 +255,7 @@ function App() {
               </div>
             </div>
           </div>
-            <ProjectCard video={leetbot} title="leetbot" badge="open source" badgeType="open">
+            <ProjectCard video={leetbot} poster={leetbotPoster} title="leetbot" badge="open source" badgeType="open">
               <p className="card-tagline project-p">Discord bot for LeetCode practice.</p>
               <p className="project-p">
                 Built and published a Discord bot adopted across 10+ servers with a combined reach of 250+ members.

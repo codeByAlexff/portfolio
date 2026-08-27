@@ -314,6 +314,7 @@ code {
 }
 
 .hero-panel {
+  min-height: 2.4em;
   display: flex;
   align-items: center;
   gap: 60px;
@@ -588,6 +589,7 @@ section {
     max-width: 100%;
   }
 }
+
 
 .window-header {
   background-color: #2d2d2d;
