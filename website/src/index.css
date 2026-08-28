@@ -574,6 +574,7 @@ section {
 }
 
 .code-window {
+  margin-top: 12px;
   flex: 1;
   max-width: 520px;
   background-color: #1e1e1e;
@@ -977,16 +978,7 @@ section {
   .projects-grid { grid-template-columns: 1fr; }
 }
 
-:root {
-  --header-h: 80px;
-}
-
-@media (max-width: 768px) {
-  :root { --header-h: 110px; }
-}
-
 #center {
-  padding-top: 120px;
   box-sizing: border-box;
 }
 
@@ -995,6 +987,6 @@ section {
 }
 
 .header-spacer {
-  height: 64px;
+  height: 90px;
   flex-shrink: 0;
 }
