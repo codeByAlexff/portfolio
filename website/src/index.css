@@ -993,3 +993,8 @@ section {
 section {
   scroll-margin-top: var(--header-h);
 }
+
+.header-spacer {
+  height: 64px;
+  flex-shrink: 0;
+}

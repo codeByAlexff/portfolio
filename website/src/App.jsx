@@ -100,7 +100,7 @@ function App() {
           </nav>
         </div>
       </header>
-
+      <div className="header-spacer" />
       <section id="center">
         <div className="hero-panel">
           <div>
