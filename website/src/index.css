@@ -978,7 +978,7 @@ section {
 }
 
 :root {
-  --header-h: 80px;
+  --header-h: 120px;
 }
 
 @media (max-width: 768px) {
