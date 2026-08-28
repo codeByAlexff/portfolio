@@ -398,7 +398,7 @@ code {
   font-size: 40px;
   text-align: left;
   font-weight: 600;
-  color: #353535;
+  color: #929292;
   transition: color 0.3s ease;
 
 }
@@ -466,7 +466,7 @@ code {
 
 .experience-company {
   margin: 0;
-  color: #9D9385;
+  color: #524d45;
   font-size: 18px;
   font-weight: 500;
 }
