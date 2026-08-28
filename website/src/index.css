@@ -990,3 +990,7 @@ section {
   height: 90px;
   flex-shrink: 0;
 }
+
+.hero-panel .code-window {
+  margin-top: 20px;
+}
