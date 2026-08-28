@@ -315,7 +315,7 @@ code {
 
 .hero-panel {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 60px;
   width: 100%;
   text-align: left;
@@ -982,11 +982,12 @@ section {
 }
 
 @media (max-width: 768px) {
-  :root { --header-h: 300px; }
+  :root { --header-h: 110px; }
 }
 
 #center {
-  padding-top: calc(var(--header-h) + 24px);
+  padding-top: 120px;
+  box-sizing: border-box;
 }
 
 section {
