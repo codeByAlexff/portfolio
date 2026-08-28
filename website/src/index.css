@@ -982,7 +982,7 @@ section {
 }
 
 @media (max-width: 768px) {
-  :root { --header-h: 110px; }
+  :root { --header-h: 300px; }
 }
 
 #center {
