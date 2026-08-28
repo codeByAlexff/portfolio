@@ -978,11 +978,11 @@ section {
 }
 
 :root {
-  --header-h: 400px;
+  --header-h: 80px;
 }
 
 @media (max-width: 768px) {
-  :root { --header-h: 64px; }
+  :root { --header-h: 110px; }
 }
 
 #center {
